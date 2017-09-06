@@ -210,9 +210,9 @@
 		4214BDE51F5FA8A800FA1F85 /* GoodsDetail&ShoppingCar */ = {
 			isa = PBXGroup;
 			children = (
-				4214BDE61F5FA8A800FA1F85 /* Models */,
 				4214BDE71F5FA8A800FA1F85 /* ViewControllers */,
 				4214BDEA1F5FA8A800FA1F85 /* Views */,
+				4214BDE61F5FA8A800FA1F85 /* Models */,
 			);
 			path = "GoodsDetail&ShoppingCar";
 			sourceTree = "<group>";
@@ -243,9 +243,9 @@
 		429941161F5EAC4F0009ADDA /* FirstView&Coupons */ = {
 			isa = PBXGroup;
 			children = (
-				429941171F5EAC4F0009ADDA /* Models */,
 				429941181F5EAC4F0009ADDA /* ViewControllers */,
 				429941191F5EAC4F0009ADDA /* Views */,
+				429941171F5EAC4F0009ADDA /* Models */,
 			);
 			path = "FirstView&Coupons";
 			sourceTree = "<group>";
@@ -276,9 +276,9 @@
 		4299411E1F5EAC4F0009ADDA /* MyCenter&Login */ = {
 			isa = PBXGroup;
 			children = (
-				4299411F1F5EAC4F0009ADDA /* Models */,
 				429941201F5EAC4F0009ADDA /* ViewControllers */,
 				429941211F5EAC4F0009ADDA /* Views */,
+				4299411F1F5EAC4F0009ADDA /* Models */,
 			);
 			path = "MyCenter&Login";
 			sourceTree = "<group>";
@@ -309,9 +309,9 @@
 		429941221F5EAC4F0009ADDA /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				429941231F5EAC4F0009ADDA /* Models */,
 				429941241F5EAC4F0009ADDA /* ViewControllers */,
 				429941251F5EAC4F0009ADDA /* Views */,
+				429941231F5EAC4F0009ADDA /* Models */,
 			);
 			path = Order;
 			sourceTree = "<group>";
