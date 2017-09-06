@@ -1,0 +1,10 @@
+# platform :ios, “7.0”
+target ‘BaseProject’ do
+
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'MBProgressHUD'
+pod 'Masonry'
+pod 'MJExtension'
+
+end

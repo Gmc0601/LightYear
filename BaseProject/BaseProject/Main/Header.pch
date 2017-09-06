@@ -1,0 +1,130 @@
+//
+//  Header.pch
+//  CarSticker
+//
+//  Created by cc on 2017/3/21.
+//  Copyright © 2017年 cc. All rights reserved.
+//
+
+#ifndef Header_pch
+#define Header_pch
+
+#import "CCUrl.h"
+#import "ConfigModel.h"
+#import "MainApi.h"
+
+
+
+/*
+ 通用
+ */
+#define kScreen_BOUNDS                  [[UIScreen mainScreen] bounds]
+#define kScreenW                        [UIScreen mainScreen].bounds.size.width
+#define kScreenH                        [UIScreen mainScreen].bounds.size.height
+#define FRAME(x,y,width,height)     CGRectMake(x,y,width,height)
+#define SizeWidth(x) ([UIScreen mainScreen].bounds.size.width)/(375) * (x)
+#define SizeHeigh(x) ([UIScreen mainScreen].bounds.size.height)/(667) * (x)
+
+
+/**
+ * 设备判断
+ */
+#define isRetina                 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) :NO)
+#define ISIPHONE5                ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_IPHONE_6              ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_IPHONE_6Plus          ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+#define ios8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+#define IsPad  [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
+
+
+/**
+ * 中英状态下键盘的高度
+ */
+#define kEnglishKeyboardHeight      (216.f)
+#define kChineseKeyboardHeight      (252.f)
+
+/**
+ * Block
+ */
+
+#define WeakSelf(weakSelf)  __weak __typeof(&*self)  weakSelf  = self;
+#define WeakObj(o) __weak typeof(o) o##Weak = o
+#define StrongSelf(strongSelf)  __strong __typeof(&*self)  strongSelf = weakSelf;
+
+
+/**
+ * 字体大小（常规/粗体）
+ */
+#define BOLDSYSTEMFONT(FONTSIZE)       [UIFont boldSystemFontOfSize:FONTSIZE]
+#define NormalFont(FONTSIZE)            [UIFont  systemFontOfSize:FONTSIZE]
+#define ArialBoldMTFont(FONTSIZE)      [UIFont fontWithName:@"Arial-BoldMT" size:FONTSIZE]
+#define HelveticaNeueFont(FONTSIZE)    [UIFont fontWithName:@"HelveticaNeue" size:FONTSIZE]
+
+//   自添加字体包
+#define IKEASansHeavy(FONTSIZE)      [UIFont fontWithName:@"IKEASans-Heavy" size:FONTSIZE]
+#define IKEASansBold(FONTSIZE)      [UIFont fontWithName:@"IKEASans-Bold" size:FONTSIZE]
+#define IKEASansRegular(FONTSIZE)      [UIFont fontWithName:@"IKEASans-Regular" size:FONTSIZE]
+#define NotoSansItalic(FONTSIZE)      [UIFont fontWithName:@"NotoSans-Italic" size:FONTSIZE]
+#define NotoSansBoldItalic(FONTSIZE)      [UIFont fontWithName:@"NotoSans-BoldItalic" size:FONTSIZE]
+#define NotoSansBold(FONTSIZE)      [UIFont fontWithName:@"NotoSans-Bold" size:FONTSIZE]
+#define NotoSans(FONTSIZE)      [UIFont fontWithName:@"NotoSans" size:FONTSIZE]
+#define SourceHanSansCNExtraLight(FONTSIZE)      [UIFont fontWithName:@"SourceHanSansCN-ExtraLight" size:FONTSIZE]
+#define SourceHanSansCNNormal(FONTSIZE)      [UIFont fontWithName:@"SourceHanSansCN-Normal" size:FONTSIZE]
+#define SourceHanSansCNBold(FONTSIZE)      [UIFont fontWithName:@"SourceHanSansCN-Bold" size:FONTSIZE]
+#define SourceHanSansCNMedium(FONTSIZE)      [UIFont fontWithName:@"SourceHanSansCN-Medium" size:FONTSIZE]
+#define SourceHanSansCNRegular(FONTSIZE)      [UIFont fontWithName:@"SourceHanSansCN-Regular" size:FONTSIZE]
+#define SourceHanSansCNLight(FONTSIZE)      [UIFont fontWithName:@"SourceHanSansCN-Light" size:FONTSIZE]
+#define SourceHanSansCNHeavy(FONTSIZE)      [UIFont fontWithName:@"SourceHanSansCN-Heavy" size:FONTSIZE]
+#define VerdanaItalic(FONTSIZE)      [UIFont fontWithName:@"Verdana-Italic" size:FONTSIZE]
+#define VerdanaBoldItalic(FONTSIZE)      [UIFont fontWithName:@"Verdana-BoldItalic" size:FONTSIZE]
+#define Verdana(FONTSIZE)      [UIFont fontWithName:@"Verdana" size:FONTSIZE]
+#define VerdanaBold(FONTSIZE)      [UIFont fontWithName:@"Verdana-Bold" size:FONTSIZE]
+
+/**
+ * 颜色（RGB）
+ */
+#define RGBColor(r,g,b)              [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define RGBColorAlpha(r,g,b,a)       [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define UIColorFromHex(s)  [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s &0xFF00) >>8))/255.0 blue:((s &0xFF))/255.0 alpha:1.0]
+
+#define MainBlue  RGBColor(62, 123, 117)
+
+#define MainYellow  RGBColor(255, 203, 47)
+
+#define MainOrange  RGBColor(255, 158, 35)
+
+#define MainRed  RGBColor(255, 84, 58)
+
+#define MainGreen  RGBColor(78, 173, 53)
+
+/**
+ * App基本信息
+ */
+/** App名称 */
+#define CFBundleDisplayName    [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+/** App版本 */
+#define App_Version            [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+/** build版本 */
+#define App_BuildVersion       [[[NSBundle  mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+/** 操作系统平台 */
+#define App_Deviceplatform     [[UIDevice currentDevice] name]
+/** 操作系统 */
+#define App_SystemName         [[UIDevice currentDevice] systemName]
+/** 操作系统版本 */
+#define App_SystemVersion      [[UIDevice currentDevice] systemVersion]
+/** 语言版本 */
+#define APP_PreferredLanguage  [[NSLocale preferredLanguages] objectAtIndex:0]
+/** SDK版本 */
+#define App_SDKversion         [[UIDevice currentDevice] systemVersion]
+
+
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"\n%s\t(%d)\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
+
+
+
+#endif /* Header_pch */
